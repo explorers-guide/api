@@ -5,7 +5,15 @@ import CreateUUID from "../../../protocols/create-uuid";
 import Hasher from "../../../protocols/hasher";
 import SaveNewAccountRepository from "../../../protocols/save-new-account-repository";
 
-export class CheckByEmailErrorSpy implements CheckAccountByEmailRespository {
+export const accountStub = {
+    name: "Daniel",
+    nickname: "b4rba",
+    password: "123456",
+    email: "daniel@email.com",
+};
+
+export const uuidStub = "74bb9e56-8581-4991-ac38-4e1cda9b8ac5";
+export class CheckByEmailErrorStub implements CheckAccountByEmailRespository {
     email!: string;
     readonly result = true;
     async checkByEmail(email: string): Promise<boolean> {
@@ -14,7 +22,7 @@ export class CheckByEmailErrorSpy implements CheckAccountByEmailRespository {
     }
 }
 
-export class CheckByemailSpy implements CheckAccountByEmailRespository {
+export class CheckByEmailStub implements CheckAccountByEmailRespository {
     email!: string;
     readonly result = false;
     async checkByEmail(email: string): Promise<boolean> {
@@ -23,21 +31,21 @@ export class CheckByemailSpy implements CheckAccountByEmailRespository {
     }
 }
 
-export class HasherSpy implements Hasher {
+export class HasherStub implements Hasher {
     password!: string;
     async hash(password: string): Promise<string> {
         this.password = password;
-        return "password-hashe";
+        return "password-hashed";
     }
 }
 
-export class CreateUUIDSpy implements CreateUUID {
+export class CreateUUIDStub implements CreateUUID {
     async generate(): Promise<string> {
-        return "74bb9e56-8581-4991-ac38-4e1cda9b8ac5";
+        return uuidStub;
     }
 }
 
-export class SaveNewAccountRepositorySpy implements SaveNewAccountRepository {
+export class SaveNewAccountRepositoryStub implements SaveNewAccountRepository {
     account!: Account;
     async save(account: Account): Promise<boolean> {
         this.account = account;

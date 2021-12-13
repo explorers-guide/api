@@ -1,18 +1,21 @@
 // eslint-disable-next-line max-classes-per-file
-import Account from "../../../../domain/entity/account";
-import CheckAccountByEmailRespository from "../../../protocols/check-account-by-email-repository";
-import CreateUUID from "../../../protocols/create-uuid";
-import Hasher from "../../../protocols/hasher";
-import SaveNewAccountRepository from "../../../protocols/save-new-account-repository";
+import Account from "../../../domain/entity/account";
+import CreateUUID from "../../protocols/adapters/create-uuid";
+import Hasher from "../../protocols/adapters/hasher";
+import CheckAccountByEmailRespository from "../../protocols/repositories/check-account-by-email-repository";
+import SaveNewAccountRepository from "../../protocols/repositories/save-new-account-repository";
 
 export const accountStub = {
-    name: "Daniel",
-    nickname: "b4rba",
-    password: "123456",
-    email: "daniel@email.com",
+    user: {
+        name: "Daniel",
+        nickname: "b4rba",
+        password: "123456",
+        email: "daniel@email.com",
+    },
 };
 
 export const uuidStub = "74bb9e56-8581-4991-ac38-4e1cda9b8ac5";
+
 export class CheckByEmailErrorStub implements CheckAccountByEmailRespository {
     email!: string;
     readonly result = true;

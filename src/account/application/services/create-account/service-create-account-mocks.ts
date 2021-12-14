@@ -1,9 +1,7 @@
-// eslint-disable-next-line max-classes-per-file
-import Account from "../../../domain/entity/account";
-import CreateUUID from "../../protocols/adapters/create-uuid";
-import Hasher from "../../protocols/adapters/hasher";
-import CheckAccountByEmailRespository from "../../protocols/repositories/check-account-by-email-repository";
-import SaveNewAccountRepository from "../../protocols/repositories/save-new-account-repository";
+/* eslint-disable max-classes-per-file */
+
+import { Account } from "../../../domain";
+import { CheckAccountByEmailRespository, Hasher, CreateUUID, SaveNewAccountRepository } from "../../protocols";
 
 export const accountStub = {
     user: {

@@ -1,13 +1,5 @@
-import Account from "../../../domain/entity/account";
-import User from "../../../domain/entity/user";
-import {
-    CreateAccount,
-    CreateAccountInput,
-} from "../../../domain/usecases/create-account";
-import CreateUUID from "../../protocols/adapters/create-uuid";
-import Hasher from "../../protocols/adapters/hasher";
-import CheckAccountByEmailRespository from "../../protocols/repositories/check-account-by-email-repository";
-import SaveNewAccountRepository from "../../protocols/repositories/save-new-account-repository";
+import { CreateAccount, CreateAccountInput, User, Account } from "../../../domain";
+import { CheckAccountByEmailRespository, CreateUUID, Hasher, SaveNewAccountRepository } from "../../protocols";
 
 export default class ServiceCreateAccount implements CreateAccount {
     constructor(
@@ -19,8 +11,7 @@ export default class ServiceCreateAccount implements CreateAccount {
 
     async execute(input: CreateAccountInput): Promise<boolean> {
         const { password, email, nickname, name } = input.user;
-        const hasAccount =
-            await this.checkAccountByEmailRepository.checkByEmail(email);
+        const hasAccount = await this.checkAccountByEmailRepository.checkByEmail(email);
         let isValid = false;
         if (!hasAccount) {
             const hashedPassword = await this.hasher.hash(password);

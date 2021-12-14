@@ -1,5 +1,5 @@
-import User from "./user";
+import { User } from "./user";
 
-export default class Account {
+export class Account {
     constructor(readonly id: string, readonly user: User) {}
 }

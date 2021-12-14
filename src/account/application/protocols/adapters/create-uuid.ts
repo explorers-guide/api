@@ -1,3 +1,3 @@
-export default interface CreateUUID {
+export interface CreateUUID {
     generate(): Promise<string>;
 }

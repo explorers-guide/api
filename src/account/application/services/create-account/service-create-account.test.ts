@@ -14,12 +14,7 @@ const checkByEmailStub = new CheckByEmailStub();
 const createUUIDStub = new CreateUUIDStub();
 const saveNewAccountRespositoryStub = new SaveNewAccountRepositoryStub();
 
-const sut = new ServiceCreateAccount(
-    checkByEmailStub,
-    saveNewAccountRespositoryStub,
-    hasherStub,
-    createUUIDStub
-);
+const sut = new ServiceCreateAccount(checkByEmailStub, saveNewAccountRespositoryStub, hasherStub, createUUIDStub);
 
 const sutErrorEmail = new ServiceCreateAccount(
     checkByemailErrorStub,
@@ -41,9 +36,7 @@ describe("Create Account", () => {
     });
 
     test("should throw if Hasher throws", async () => {
-        jest.spyOn(hasherStub, "hash").mockResolvedValueOnce(
-            new Promise((resolve, reject) => reject(new Error()))
-        );
+        jest.spyOn(hasherStub, "hash").mockResolvedValueOnce(new Promise((resolve, reject) => reject(new Error())));
 
         const promise = sut.execute(accountStub);
         await expect(promise).rejects.toThrow();

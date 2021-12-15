@@ -1,4 +1,4 @@
-import Account from "../account";
+import { Account } from "../..";
 import { accountMock } from "./mocks/account-mock";
 
 describe("account", () => {

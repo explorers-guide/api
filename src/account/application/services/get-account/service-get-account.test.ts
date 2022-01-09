@@ -12,4 +12,11 @@ describe("Get Account", () => {
         await sut.execute(uuidStub);
         expect(getAccountSpy).toHaveBeenCalledWith(uuidStub);
     });
+
+    test("should throw if execute throws", async () => {
+        jest.spyOn(sut, "execute").mockResolvedValueOnce(new Promise((resolve, reject) => reject(new Error())));
+
+        const promise = sut.execute(uuidStub);
+        await expect(promise).rejects.toThrow();
+    });
 });

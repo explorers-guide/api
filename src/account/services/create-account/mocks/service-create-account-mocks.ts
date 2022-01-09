@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 
-import { Account } from "../../../../domain";
-import { CheckAccountByEmailRespository, Hasher, CreateUUID, SaveNewAccountRepository } from "../../../protocols";
+import { Account } from "../../../domain";
+import { CheckAccountByEmailRespository, Hasher, CreateUUID, SaveNewAccountRepository } from "../../protocols";
 
 export const accountStub = {
     user: {

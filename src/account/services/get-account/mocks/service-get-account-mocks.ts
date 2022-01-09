@@ -1,5 +1,5 @@
-import { Account } from "../../../../domain";
-import { GetAccountByIdRespository } from "../../../protocols";
+import { Account } from "../../../domain";
+import { GetAccountByIdRespository } from "../../protocols";
 
 export const uuidStub = "74bb9e56-8581-4991-ac38-4e1cda9b8ac5";
 

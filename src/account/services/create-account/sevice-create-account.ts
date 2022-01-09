@@ -1,5 +1,5 @@
-import { CreateAccount, CreateAccountInput, User, Account } from "../../../domain";
-import { CheckAccountByEmailRespository, CreateUUID, Hasher, SaveNewAccountRepository } from "../../protocols";
+import { CreateAccount, CreateAccountInput, User, Account } from "../../domain";
+import { CheckAccountByEmailRespository, CreateUUID, Hasher, SaveNewAccountRepository } from "../protocols";
 
 export class ServiceCreateAccount implements CreateAccount {
     constructor(

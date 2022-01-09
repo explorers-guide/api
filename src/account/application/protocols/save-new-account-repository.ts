@@ -1,4 +1,4 @@
-import { Account } from "../../../domain/entity/account";
+import { Account } from "../../domain";
 
 export interface SaveNewAccountRepository {
     save(account: Account): Promise<boolean>;

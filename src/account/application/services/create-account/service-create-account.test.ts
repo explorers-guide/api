@@ -5,8 +5,8 @@ import {
     accountStub,
     HasherStub,
     SaveNewAccountRepositoryStub,
-} from "./service-create-account-mocks";
-import ServiceCreateAccount from "./sevice-create-account";
+} from "./mocks/service-create-account-mocks";
+import { ServiceCreateAccount } from "./sevice-create-account";
 
 const hasherStub = new HasherStub();
 const checkByemailErrorStub = new CheckByEmailErrorStub();

@@ -1,7 +1,7 @@
 import { CreateAccount, CreateAccountInput, User, Account } from "../../../domain";
 import { CheckAccountByEmailRespository, CreateUUID, Hasher, SaveNewAccountRepository } from "../../protocols";
 
-export default class ServiceCreateAccount implements CreateAccount {
+export class ServiceCreateAccount implements CreateAccount {
     constructor(
         private readonly checkAccountByEmailRepository: CheckAccountByEmailRespository,
         private readonly saveNewAccountRepository: SaveNewAccountRepository,
